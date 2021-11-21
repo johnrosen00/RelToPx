@@ -1,0 +1,1 @@
+pug -w ./pug/index.pug -o ./ -P
