@@ -31,10 +31,11 @@ a2rButton.addEventListener('click', ()=>{
 })
 
 
-let outputbtn = document.getElementById("output")
+let outputbtn = document.getElementById("submit")
 outputbtn.addEventListener("click", ()=> {
-    
-    document.getElementById("output").textContent = convert(currentConvType, currentRelType, parseInt(document.getElementById("amt").textContent))
+    console.log(convert(currentConvType, currentRelType, parseInt(document.getElementById("amt").textContent)))
+    console.log(document.getElementById("amt").value)
+    document.getElementById("output").textContent = convert(currentConvType, currentRelType, parseInt(document.getElementById("amt").value))
 })
 
 
@@ -55,7 +56,6 @@ function pxToVwConsole(px) {
 }
 
 function convert(direction, type, amount) {
-    let rel = type == "vw" ? window.innerWidth : window.innerHeight
-
-    return direction == "a2r" ? 100*amount/rel : amount*rel/100
+    let rel = type === "vw" ? window.innerWidth : window.innerHeight
+    return direction === "a2r" ? 100*amount/rel + " " + type: amount*rel/100 + " px"
 }
